@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moved</title>
+<script>
+  // An old web-scumm page (wanoo.github.io/web-scumm/…) goes to the same page of quest'n'click.
+  var p = location.pathname;
+  if (p === '/web-scumm' || p.indexOf('/web-scumm/') === 0)
+    location.replace('https://wanoo.github.io/quest-n-click' + p.slice('/web-scumm'.length) + location.search + location.hash);
+</script>
+</head>
+<body>
+<p>Not found. quest'n'click (formerly web-scumm) lives at <a href="https://wanoo.github.io/quest-n-click/">wanoo.github.io/quest-n-click</a>.</p>
+</body>
+</html>
