@@ -5,13 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Moved</title>
 <script>
-  // An old web-scumm page (wanoo.github.io/web-scumm/…) goes to the same page of quest'n'click.
-  var p = location.pathname;
-  if (p === '/web-scumm' || p.indexOf('/web-scumm/') === 0)
-    location.replace('https://wanoo.github.io/quest-n-click' + p.slice('/web-scumm'.length) + location.search + location.hash);
+  // Quest'n'Click moved to its organization's site (24 Oct 2026). An old page keeps its place there:
+  //   /quest-n-click/docs/… and /web-scumm/docs/… → https://quest-n-click.github.io/docs/…
+  //   /quest-n-click/…      and /web-scumm/…      → https://quest-n-click.github.io/play/…  (the game, studio.html)
+  var p = location.pathname, rest = null;
+  ['/quest-n-click', '/web-scumm'].forEach(function (b) {
+    if (rest === null && (p === b || p.indexOf(b + '/') === 0)) rest = p.slice(b.length) || '/';
+  });
+  if (rest !== null) {
+    var to = rest.indexOf('/docs/') === 0 || rest === '/docs' ? rest : '/play' + rest;
+    location.replace('https://quest-n-click.github.io' + to + location.search + location.hash);
+  }
 </script>
 </head>
 <body>
-<p>Not found. quest'n'click (formerly web-scumm) lives at <a href="https://wanoo.github.io/quest-n-click/">wanoo.github.io/quest-n-click</a>.</p>
+<p>Not found. Quest'n'Click (formerly web-scumm) lives at <a href="https://quest-n-click.github.io/">quest-n-click.github.io</a>.</p>
 </body>
 </html>
